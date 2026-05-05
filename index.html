@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStore – Tu tienda digital</title>
+  <link rel="stylesheet" href="styles (1).css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">⚡ TechStore</div>
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#productos">Productos</a>
+        <button class="btn-nav" onclick="mostrarLogin()">Iniciar sesión</button>
+        <a href="#registro" class="btn-nav btn-registro">Registrarse</a>
+      </nav>
+      <button class="toggle-modo" onclick="toggleModo()" title="Cambiar modo">🌙</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- SECCIÓN INICIO -->
+    <section id="inicio" class="seccion-hero">
+      <div class="hero-content">
+        <span class="badge">Nuevo · 2026</span>
+        <h1>La tecnología<br/>que necesitas,<br/><em>al alcance de un clic.</em></h1>
+        <p>Descubre nuestra selección de productos digitales premium. Calidad garantizada, envíos rápidos y atención 24/7.</p>
+        <div class="hero-btns">
+          <a href="#productos" class="btn-primary">Ver productos</a>
+          <a href="#registro" class="btn-outline">Crear cuenta</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="floating-card">🖥️<span>MacBook Pro M3</span></div>
+        <div class="floating-card delay-1">🎧<span>AirPods Pro</span></div>
+        <div class="floating-card delay-2">📱<span>iPhone 16</span></div>
+        <div class="orb"></div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN SERVICIOS -->
+    <section id="servicios" class="seccion-servicios">
+      <div class="seccion-header">
+        <h2>¿Por qué elegirnos?</h2>
+        <p>Servicios diseñados para una experiencia de compra excepcional.</p>
+      </div>
+      <div class="servicios-grid">
+        <div class="servicio-card">
+          <div class="icon">🚀</div>
+          <h3>Envío Express</h3>
+          <p>Recibe tu pedido en menos de 24 horas con seguimiento en tiempo real.</p>
+        </div>
+        <div class="servicio-card">
+          <div class="icon">🔒</div>
+          <h3>Pago Seguro</h3>
+          <p>Tus datos protegidos con cifrado SSL y múltiples métodos de pago.</p>
+        </div>
+        <div class="servicio-card">
+          <div class="icon">🛠️</div>
+          <h3>Soporte 24/7</h3>
+          <p>Equipo técnico disponible todos los días para resolver cualquier duda.</p>
+        </div>
+        <div class="servicio-card">
+          <div class="icon">↩️</div>
+          <h3>Devoluciones</h3>
+          <p>30 días para devolver tu producto sin preguntas y sin costos adicionales.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN PRODUCTOS + CARRITO -->
+    <section id="productos" class="seccion-productos">
+      <div class="seccion-header">
+        <h2>Catálogo de Productos</h2>
+        <p>Los mejores gadgets del mercado, seleccionados para ti.</p>
+      </div>
+
+      <div class="productos-layout">
+
+        <!-- CATÁLOGO -->
+        <div class="catalogo">
+          <div class="producto-card">
+            <div class="producto-img">💻</div>
+            <h3>Laptop UltraSlim</h3>
+            <p class="precio">$899.99</p>
+            <button class="btn-agregar" onclick="agregar(0)">+ Agregar</button>
+          </div>
+          <div class="producto-card">
+            <div class="producto-img">🎧</div>
+            <h3>Auriculares Pro</h3>
+            <p class="precio">$149.99</p>
+            <button class="btn-agregar" onclick="agregar(1)">+ Agregar</button>
+          </div>
+          <div class="producto-card">
+            <div class="producto-img">⌚</div>
+            <h3>Smartwatch X10</h3>
+            <p class="precio">$299.99</p>
+            <button class="btn-agregar" onclick="agregar(2)">+ Agregar</button>
+          </div>
+          <div class="producto-card">
+            <div class="producto-img">📷</div>
+            <h3>Cámara 4K Pro</h3>
+            <p class="precio">$549.99</p>
+            <button class="btn-agregar" onclick="agregar(3)">+ Agregar</button>
+          </div>
+        </div>
+
+        <!-- CARRITO -->
+        <div class="carrito">
+          <h3>🛒 Carrito de Compras</h3>
+          <ul class="carrito-lista">
+            <li>Laptop UltraSlim: <span id="cant-0">0</span></li>
+            <li>Auriculares Pro: <span id="cant-1">0</span></li>
+            <li>Smartwatch X10: <span id="cant-2">0</span></li>
+            <li>Cámara 4K Pro: <span id="cant-3">0</span></li>
+          </ul>
+          <div class="carrito-total">
+            Total de artículos: <strong id="total-items">0</strong>
+          </div>
+          <button class="btn-pagar" onclick="irAPagar()">Ir a pagar 💳</button>
+          <div id="msg-pago" class="msg-pago"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN REGISTRO -->
+    <section id="registro" class="seccion-registro">
+      <div class="registro-inner">
+        <div class="registro-info">
+          <h2>Únete a<br/>TechStore</h2>
+          <p>Crea tu cuenta y accede a ofertas exclusivas, seguimiento de pedidos y mucho más.</p>
+          <ul class="beneficios">
+            <li>✓ Descuentos exclusivos para miembros</li>
+            <li>✓ Historial de compras</li>
+            <li>✓ Soporte prioritario</li>
+          </ul>
+        </div>
+        <div class="form-wrapper">
+       <form id="form-registro" novalidate>s
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" placeholder="Ej: Nataly Velez" required />
+            </div>
+            <div class="form-group">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" placeholder="correo@ejemplo.com" required />
+            </div>
+            <div class="form-group">
+              <label for="edad">Edad</label>
+              <input type="number" id="edad" placeholder="Ej: 22" min="10" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <input type="password" id="password" placeholder="Mínimo 6 caracteres" minlength="6" required />
+            </div>
+            <div id="msg-form" class="msg-form"></div>
+            <button type="submit" class="btn-primary btn-full">Crear cuenta →</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">⚡ TechStore</div>
+      <p>© 2026 TechStore. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#productos">Productos</a>
+        <a href="#registro">Registro</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
